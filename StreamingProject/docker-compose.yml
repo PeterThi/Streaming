@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  
+  catalogservice:
+    image: ${DOCKER_REGISTRY-}catalogservice
+    ports:
+    - "8181:80"
+    build:
+      context: .
+      dockerfile: CatalogService/Dockerfile
+
+  catalogdbservice:
+    image: ${DOCKER_REGISTRY-}catalogdbservice
+    ports: 
+    - "8100:80"
+    build:
+      context: .
+      dockerfile: CatalogDbService/Dockerfile
+
+  catalogDatabase:
+    image: "mysql"
+    environment: 
+      MYSQL_DATABASE: "catalog-database"
+      MYSQL_USER: "add-bruger"
+      MYSQL_PASSWORD: "C@ch3d1v2"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"

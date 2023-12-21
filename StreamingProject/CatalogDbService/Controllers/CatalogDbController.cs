@@ -18,17 +18,17 @@ namespace CatalogDbService.Controllers
         }
 
         [HttpPost]
-        public void Post(string titleFromParam, int lengthFromParam, string reviewFromParam)
+        public string Post(string titleFromParam, int lengthFromParam, string reviewFromParam)
         {
             CatalogDatabaseConnection.Open();
-            var tables = CatalogDatabaseConnection.Query<string>("SHOW TABLES LIKE Movies");
+            var tables = CatalogDatabaseConnection.Query<string>("SHOW TABLES LIKE 'Movies'");
             if (!tables.Any())
             {
-                CatalogDatabaseConnection.Execute("CREATE TABLE Movies(Title string, length int, review string)");
+                CatalogDatabaseConnection.Execute("CREATE TABLE Movies (Title TEXT, length int, review TEXT)");
+
             }
-            CatalogDatabaseConnection.Execute("INSERT INTO Movies(Title,length,review) VALUES (@title, @length, @review", new { title = titleFromParam, length = lengthFromParam, review = reviewFromParam });
-
-
+            CatalogDatabaseConnection.Execute("INSERT INTO Movies (Title,length,review) VALUES (@title, @length, @review)", new { title = titleFromParam, length = lengthFromParam, review = reviewFromParam });
+            return titleFromParam + "inserted";
         }
 
         [HttpGet]
