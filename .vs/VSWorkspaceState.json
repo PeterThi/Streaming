@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\StreamingProject",
+    "\\StreamingProject\\CatalogDbService",
+    "\\StreamingProject\\CatalogDbService\\Controllers"
   ],
+  "SelectedNode": "\\StreamingProject\\CatalogDbService\\Controllers\\CatalogDbController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -18,10 +18,26 @@ services:
       context: .
       dockerfile: CatalogDbService/Dockerfile
 
+  userdbservice:
+    image: ${DOCKER_REGISTRY-}userdbservice
+    ports:
+    - "8181:80"
+    build:
+      context: .
+      dockerfile: UserDbService/Dockerfile
+
   catalogDatabase:
     image: "mysql"
     environment: 
       MYSQL_DATABASE: "catalog-database"
+      MYSQL_USER: "add-bruger"
+      MYSQL_PASSWORD: "C@ch3d1v2"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+
+  userDatabase:
+    image: "mysql"
+    environment:
+      MYSQL_DATABASE: "user-database"
       MYSQL_USER: "add-bruger"
       MYSQL_PASSWORD: "C@ch3d1v2"
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
