@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "9MyW1QiQOjTrbjrBMFh/v0hTjORiIqTft7EW6MMVyP4=",
+  "Source": "CatalogDbService",
+  "BasePath": "_content/CatalogDbService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
