@@ -31,7 +31,7 @@ namespace CatalogDbService.Controllers
             return titleFromParam + "inserted";
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetAll")]
         public IEnumerable<string> Get()
         {
             IEnumerable<string> resultList = CatalogDatabaseConnection.Query<string>("SELECT title from Movies");

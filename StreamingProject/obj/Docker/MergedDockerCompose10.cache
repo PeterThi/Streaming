@@ -1,0 +1,64 @@
+name: dockercompose7539406452974573102
+services:
+  catalogDatabase:
+    environment:
+      MYSQL_DATABASE: catalog-database
+      MYSQL_PASSWORD: C@ch3d1v2
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_USER: add-bruger
+    image: mysql
+    networks:
+      default: null
+  catalogdbservice:
+    build:
+      context: C:\Users\pete9\source\repos\Streaming\StreamingProject
+      dockerfile: CatalogDbService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: catalogdbservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        protocol: tcp
+      - mode: ingress
+        target: 80
+        published: "8100"
+        protocol: tcp
+  catalogservice:
+    build:
+      context: C:\Users\pete9\source\repos\Streaming\StreamingProject
+      dockerfile: CatalogService/Dockerfile
+    image: catalogservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8181"
+        protocol: tcp
+  userDatabase:
+    environment:
+      MYSQL_DATABASE: user-database
+      MYSQL_PASSWORD: C@ch3d1v2
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_USER: add-bruger
+    image: mysql
+    networks:
+      default: null
+  userdbservice:
+    build:
+      context: C:\Users\pete9\source\repos\Streaming\StreamingProject
+      dockerfile: UserDbService/Dockerfile
+    image: userdbservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8181"
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose7539406452974573102_default

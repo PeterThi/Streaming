@@ -5,7 +5,7 @@ services:
   catalogservice:
     image: ${DOCKER_REGISTRY-}catalogservice
     ports:
-    - "8181:80"
+    - "8281:80"
     build:
       context: .
       dockerfile: CatalogService/Dockerfile
@@ -21,7 +21,7 @@ services:
   userdbservice:
     image: ${DOCKER_REGISTRY-}userdbservice
     ports:
-    - "8181:80"
+    - "8182:80"
     build:
       context: .
       dockerfile: UserDbService/Dockerfile

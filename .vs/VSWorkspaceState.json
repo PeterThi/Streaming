@@ -3,8 +3,10 @@
     "",
     "\\StreamingProject",
     "\\StreamingProject\\CatalogDbService",
-    "\\StreamingProject\\CatalogDbService\\Controllers"
+    "\\StreamingProject\\CatalogDbService\\Controllers",
+    "\\StreamingProject\\UserDbService",
+    "\\StreamingProject\\UserDbService\\Controllers"
   ],
-  "SelectedNode": "\\StreamingProject\\CatalogDbService\\Controllers\\CatalogDbController.cs",
+  "SelectedNode": "\\StreamingProject\\UserDbService\\Controllers\\UserDatabaseController.cs",
   "PreviewInSolutionExplorer": false
 }
